@@ -5,6 +5,21 @@ import {useState} from "react"; /* Importa a funcionalidad de usar a logica dos 
 export default function App() {
     const [display, setDisplay] = useState("0"); /* NOTA: cosntantes que representam a logica do aplicativo deverao ser declaradas fora do return(), pois no return devera existir apenas codigo JSX, ouseja os componentes que renderizam o aplicativo */
 
+    /* Logica do Calculo
+    1. Encontrar a posicao do operador
+    2. Extrair o primeiro numero
+    3. Extrair o seundo numero
+    4. Identificar qual oepracao executar
+    */
+
+    const calcular = () => {
+        const PrimeiroNum = Number(display.slice(0, display.indexOf("+")));
+        const SegundoNum = Number(display.slice(display.indexOf("+"+1)));
+        const ResultadoDaOperacao = PrimeiroNum+SegundoNum;
+        setDisplay(String(ResultadoDaOperacao));
+    };
+
+
     return (
         <View className="flex-1  bg-white">
             <Text className="text-xl font-bold text-blue-500">
@@ -18,7 +33,7 @@ export default function App() {
             <Button
                 title="BOTAO 1"
                 onPress={() => {
-                    setDisplay("1");
+                    setDisplay(display+"1");
                 }}
             />
 
@@ -26,28 +41,57 @@ export default function App() {
             <Button
                 title="BOTAO 2"
                 onPress={() => {
-                    setDisplay("2");
+                    setDisplay(display+"2");
                 }}
             />
 
             <Button
                 title="BOTAO 3"
                 onPress={() => {
-                    setDisplay("3");
+                    setDisplay(display+"3");
                 }}
             />
 
             <Button
                 title="BOTAO 4"
                 onPress={() => {
-                    setDisplay("4");
+                    setDisplay(display+"4");
                 }}
             />
 
             <Button
                 title="BOTAO 5"
                 onPress={() => {
-                    setDisplay("5");
+                    setDisplay(display+"5");
+                }}
+            />
+
+            <Button
+                title="BOTAO Soma"
+                onPress={() => {
+                    setDisplay(display+"+");
+                }}
+            />
+
+            <Button
+                title="BOTAO Resta"
+                onPress={() => {
+                    setDisplay(display+"-");
+                }}
+            />
+
+
+            <Button
+                title="Limpar Display"
+                onPress={() => {
+                    setDisplay("0");
+                }}
+            />
+
+            <Button
+                title="Calcular"
+                onPress={() => {
+                    calcular();
                 }}
             />
 

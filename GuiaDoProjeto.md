@@ -10,3 +10,23 @@
 3. A primeira operacao de teste sera simples apenas uma soma, logo testaremos a funcionaldiade de Calcular Representada com o simbolo de iual (=).
 4. A funcao de calcular devera calcular a operacao matematica criada pelo usuario.
 5. Com isso teremos o projeto piloto rodando e poderemos continuar.
+
+
+
+# FLUXO DE TRABALHO:
+
+1. Desenvovler: implementar uma nova funcionaldiade
+2. Testar: verificar se esta funcionando corretamente
+
+3. Registrar a alteracao no Git:
+git add .
+git commit -m "[v0.2.0] Implementado: Nova Funcionalidade Implementada"
+
+4. Publicar:
+git push
+
+5. Quando concluir um marco de versao importante:
+git tag -a v0.2.0 -m "[v0.2.0]: Descrição da versão"
+git push origin v0.2.0
+
+
