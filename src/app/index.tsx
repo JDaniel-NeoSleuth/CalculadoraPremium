@@ -12,12 +12,30 @@ export default function App() {
     4. Identificar qual oepracao executar
     */
 
+    /* Nota: Sem regras ainda sujeito a erros!                */
     const calcular = () => {
-        const PrimeiroNum = Number(display.slice(0, display.indexOf("+")));
-        const SegundoNum = Number(display.slice(display.indexOf("+"+1)));
-        const ResultadoDaOperacao = PrimeiroNum+SegundoNum;
+        const operacao01 = acharOperador();
+        const posicaoOperador = display.indexOf(operacao01);
+
+        const PrimeiroNum = Number(display.slice(0, posicaoOperador));
+        const SegundoNum = Number(display.slice(posicaoOperador+1));
+
+        let ResultadoDaOperacao;
+
+        if (operacao01 === "+") {
+            ResultadoDaOperacao = PrimeiroNum + SegundoNum;
+        } else {
+            ResultadoDaOperacao = PrimeiroNum - SegundoNum;
+        }
         setDisplay(String(ResultadoDaOperacao));
     };
+
+    /* Funcao com Logica de identificacao de operador (ex. identificar quando e soma e quando e resta e retornar o valor correspondente) */
+    const acharOperador = () => {
+        const operador01 = display.indexOf("+")>-1 ? "+" : "-";
+        return operador01;
+    };
+
 
 
     return (
